@@ -55,16 +55,39 @@ export default function SignupPage() {
     try {
       signupSchema.parse(formData);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      if (formData.email === 'exists@example.com') {
-        throw new Error('Email already registered');
+      // Hit real backend signup
+      const registerRes = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          full_name: formData.name,
+          role: formData.role
+        })
+      });
+
+      const registerData = await registerRes.json();
+
+      if (!registerRes.ok) {
+        throw new Error(registerData.detail || 'Email already registered or invalid data');
       }
 
-      login('new-mock-token', { id: 2, name: formData.name, full_name: formData.name, email: formData.email, role: formData.role });
+      const token = registerData.access_token;
+
+      // Fetch user profile
+      const meRes = await fetch('/api/auth/me', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+
+      if (!meRes.ok) {
+        throw new Error('Could not fetch user profile after registration');
+      }
+
+      const user = await meRes.json();
+      login(token, user);
       router.push('/dashboard');
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof z.ZodError) {
         const fieldErrors: any = {};
         error.errors.forEach(err => {
@@ -72,7 +95,7 @@ export default function SignupPage() {
         });
         setErrors(fieldErrors);
       } else {
-        setErrorMsg((error as Error).message || 'Something went wrong. Please try again.');
+        setErrorMsg(error.message || 'Something went wrong. Please try again.');
       }
     } finally {
       setIsLoading(false);

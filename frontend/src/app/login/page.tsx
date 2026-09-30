@@ -48,19 +48,39 @@ export default function LoginPage() {
     setIsLoading(true);
     
     try {
-      // Validate
       loginSchema.parse(formData);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      if (formData.email === 'error@example.com') {
-        throw new Error('Invalid credentials');
+      // Hit real backend login
+      const params = new URLSearchParams();
+      params.append('username', formData.email);
+      params.append('password', formData.password);
+
+      const loginRes = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params
+      });
+
+      if (!loginRes.ok) {
+        throw new Error('Invalid email or password. Please try again.');
       }
 
-      login('mock-token', { id: 1, name: 'User', full_name: 'User', email: formData.email, role: 'user' });
+      const loginData = await loginRes.json();
+      const token = loginData.access_token;
+
+      // Fetch user profile
+      const meRes = await fetch('/api/auth/me', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+
+      if (!meRes.ok) {
+        throw new Error('Could not fetch user profile');
+      }
+
+      const user = await meRes.json();
+      login(token, user);
       router.push('/dashboard');
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof z.ZodError) {
         const fieldErrors: any = {};
         error.errors.forEach(err => {
@@ -68,20 +88,13 @@ export default function LoginPage() {
         });
         setErrors(fieldErrors);
       } else {
-        setErrorMsg('Invalid email or password. Please try again.');
+        setErrorMsg(error.message || 'An error occurred during login.');
       }
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleGuestLogin = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      login('guest-token', { id: 0, name: 'Guest User', full_name: 'Guest User', email: 'guest@example.com', role: 'guest' });
-      router.push('/dashboard');
-    }, 800);
-  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-stone-50 p-4 font-inter">
@@ -166,25 +179,9 @@ export default function LoginPage() {
                 </Button>
               </form>
 
-              <div className="mt-6 flex items-center">
-                <div className="flex-grow border-t border-stone-200"></div>
-                <span className="mx-4 text-xs text-stone-400 uppercase">Or</span>
-                <div className="flex-grow border-t border-stone-200"></div>
-              </div>
-
-              <div className="mt-6">
-                <Button 
-                  type="button" 
-                  variant="outline" 
-                  className="w-full border-2 border-stone-200 text-stone-700 hover:bg-stone-50"
-                  onClick={handleGuestLogin}
-                  disabled={isLoading}
-                >
-                  Continue as Guest
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </CardContent>
+                <div className="mt-6">
+                </div>
+              </CardContent>
             <CardFooter className="flex justify-center border-t border-stone-100 pt-6">
               <p className="text-sm text-stone-600">
                 Don't have an account?{' '}
