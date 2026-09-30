@@ -17,7 +17,7 @@ export default function AboutPage() {
           <BrainCircuit className="w-16 h-16 text-emerald-600" />
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-4xl md:text-5xl font-extrabold tracking-tight">
-          How <span className="text-emerald-600">PackSmart AI</span> Works
+          How <span className="text-emerald-600">PackLabs</span> Works
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
           Combining food science principles with machine learning to optimize packaging for shelf-life, sustainability, and cost.
@@ -114,7 +114,7 @@ export default function AboutPage() {
         </h2>
         <div className="text-amber-800/80 dark:text-amber-400/80 space-y-3 text-sm">
           <p>
-            PackSmart AI is an advisory tool designed to narrow down packaging choices and accelerate R&D. It <strong>does not replace physical shelf-life testing</strong> or regulatory compliance checks.
+            PackLabs is an advisory tool designed to narrow down packaging choices and accelerate R&D. It <strong>does not replace physical shelf-life testing</strong> or regulatory compliance checks.
           </p>
           <p>
             Predictions are based on idealized storage conditions and theoretical material properties. Actual performance may vary due to manufacturing variances, seal integrity, and supply chain temperature fluctuations. Always validate AI recommendations with physical prototype testing.

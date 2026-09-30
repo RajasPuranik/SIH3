@@ -18,7 +18,7 @@ export function AssistantPanel() {
   const { currentResult } = useAnalysisStore();
   
   const [messages, setMessages] = useState<Message[]>([
-    { id: "init", role: "assistant", content: "Hi! I'm PackSmart AI. How can I help you with your packaging decisions today?" }
+    { id: "init", role: "assistant", content: "Hi! I'm PackLabs. How can I help you with your packaging decisions today?" }
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -78,7 +78,7 @@ export function AssistantPanel() {
             <div className="flex items-center justify-between border-b border-stone-200 px-6 py-4 dark:border-stone-800">
               <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-500">
                 <Sparkles className="h-5 w-5" />
-                <h2 className="font-semibold text-stone-900 dark:text-stone-100">Ask PackSmart AI</h2>
+                <h2 className="font-semibold text-stone-900 dark:text-stone-100">Ask PackLabs</h2>
               </div>
               <button
                 onClick={() => setAssistantOpen(false)}

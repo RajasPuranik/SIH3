@@ -45,7 +45,7 @@ export function Header() {
               <Leaf className="h-5 w-5" />
             </div>
             <span className="hidden font-serif text-xl font-bold sm:inline-block">
-              PackSmart AI
+              PackLabs
             </span>
           </Link>
         </div>

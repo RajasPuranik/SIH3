@@ -9,7 +9,7 @@ const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-fraunces' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export const metadata: Metadata = {
-  title: 'PackSmart AI',
+  title: 'PackLabs',
   description: 'AI-powered packaging optimization for agricultural commodities',
 };
 

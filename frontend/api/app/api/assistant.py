@@ -1,5 +1,5 @@
 """
-PackSmart AI — AI Assistant Routes
+PackLabs — AI Assistant Routes
 
 Rules-based assistant that answers follow-up questions about packaging
 recommendations. Optionally hooks into an LLM API if configured.
@@ -154,7 +154,7 @@ def find_best_answer(question: str, context: Optional[Dict[str, Any]]) -> Assist
 
 @router.post("/assistant", response_model=AssistantResponse)
 def ask_assistant(request: AssistantRequest):
-    """Ask the PackSmart AI assistant a question about packaging."""
+    """Ask the PackLabs assistant a question about packaging."""
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Please provide a question")
 

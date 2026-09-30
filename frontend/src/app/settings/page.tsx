@@ -45,7 +45,7 @@ export default function SettingsPage() {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Email Address</label>
-                <Input defaultValue="admin@packsmart.ai" type="email" />
+                <Input defaultValue="admin@packlabs.ai" type="email" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Role</label>
@@ -59,7 +59,7 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2"><Palette className="w-5 h-5" /> Appearance</CardTitle>
-              <CardDescription>Customize how PackSmart AI looks</CardDescription>
+              <CardDescription>Customize how PackLabs looks</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-3">

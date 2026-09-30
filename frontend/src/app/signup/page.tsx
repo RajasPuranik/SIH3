@@ -92,7 +92,7 @@ export default function SignupPage() {
             <div className="w-10 h-10 rounded bg-forest-600 flex items-center justify-center text-white shadow-lg shadow-forest-600/20">
               <PackageSearch size={24} />
             </div>
-            <span className="font-bold text-2xl tracking-tight text-forest-900">PackSmart AI</span>
+            <span className="font-bold text-2xl tracking-tight text-forest-900">PackLabs</span>
           </Link>
         </div>
 

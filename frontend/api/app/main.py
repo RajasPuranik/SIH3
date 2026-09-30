@@ -1,5 +1,5 @@
 """
-PackSmart AI — FastAPI Application Entry Point
+PackLabs — FastAPI Application Entry Point
 
 Brings up the backend with all routes, middleware, and startup initialization.
 """
@@ -13,14 +13,14 @@ from app.core.config import settings
 from app.core.database import init_db
 from app.api import auth, commodities, materials, recommend, trace, assistant, model_info
 
-logger = logging.getLogger("packsmart")
+logger = logging.getLogger("packlabs")
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup and shutdown events."""
     # Startup
-    logger.info("PackSmart AI starting up...")
+    logger.info("PackLabs starting up...")
     init_db()
     logger.info("Database initialized")
 
@@ -38,13 +38,13 @@ async def lifespan(app: FastAPI):
     yield
 
     # Shutdown
-    logger.info("PackSmart AI shutting down...")
+    logger.info("PackLabs shutting down...")
 
 
 app = FastAPI(
     title=settings.APP_NAME,
     description=(
-        "PackSmart AI — Intelligent food packaging recommendation system. "
+        "PackLabs — Intelligent food packaging recommendation system. "
         "Recommends optimal packaging materials based on food properties, "
         "storage conditions, and user priorities using a combination of "
         "expert rules, ML models, and multi-criteria scoring."

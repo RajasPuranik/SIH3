@@ -133,7 +133,7 @@ export default function AnalyzingTransitionPage() {
               className="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full"
             />
           </div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">PackSmart AI is Analyzing</h1>
+          <h1 className="text-2xl font-bold text-white tracking-tight">PackLabs is Analyzing</h1>
           <p className="text-stone-400 mt-2 text-sm">Running computational models on {currentInput?.commodityName || 'your product'}...</p>
         </motion.div>
 

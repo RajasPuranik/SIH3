@@ -1,5 +1,5 @@
 """
-PackSmart AI — Traceability QR Code Routes
+PackLabs — Traceability QR Code Routes
 
 Create trace batches, generate QR codes, and serve public scan pages.
 """
@@ -98,7 +98,7 @@ def create_trace(
 
     # Generate hash and URLs
     short_hash = generate_short_hash(data.analysis_id, data.batch_number)
-    trace_url = f"https://packsmart.ai/trace/{short_hash}"  # Production URL
+    trace_url = f"https://packlabs.ai/trace/{short_hash}"  # Production URL
 
     # Calculate expiry date
     packaging_date = data.packaging_date or datetime.utcnow()
@@ -225,7 +225,7 @@ def get_trace_qr_png(hash: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Trace not found")
 
     qr_data = json.loads(trace.qr_data) if trace.qr_data else {}
-    url = qr_data.get("url", f"https://packsmart.ai/trace/{hash}")
+    url = qr_data.get("url", f"https://packlabs.ai/trace/{hash}")
 
     png_bytes = generate_qr_png(url)
     if not png_bytes:

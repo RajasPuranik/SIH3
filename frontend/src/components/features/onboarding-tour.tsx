@@ -16,7 +16,7 @@ export function OnboardingTour() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const hasSeenTour = localStorage.getItem("packsmart_tour_seen");
+    const hasSeenTour = localStorage.getItem("packlabs_tour_seen");
     if (!hasSeenTour) {
       // Small delay before starting tour
       const timer = setTimeout(() => setIsVisible(true), 1500);
@@ -34,7 +34,7 @@ export function OnboardingTour() {
 
   const endTour = () => {
     setIsVisible(false);
-    localStorage.setItem("packsmart_tour_seen", "true");
+    localStorage.setItem("packlabs_tour_seen", "true");
   };
 
   if (!isVisible) return null;

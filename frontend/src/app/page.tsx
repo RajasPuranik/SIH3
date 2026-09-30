@@ -289,7 +289,7 @@ export default function LandingPage() {
         <section className="py-24 bg-stone-900 text-stone-50 relative overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-20">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">How PackSmart AI works</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">How PackLabs works</h2>
               <p className="text-lg text-stone-400">A seamless workflow from data input to actionable packaging recommendations.</p>
             </div>
 
@@ -391,7 +391,7 @@ export default function LandingPage() {
                 <div className="w-8 h-8 rounded bg-forest-600 flex items-center justify-center">
                   <PackageSearch size={20} />
                 </div>
-                <span className="font-bold text-xl tracking-tight">PackSmart AI</span>
+                <span className="font-bold text-xl tracking-tight">PackLabs</span>
               </Link>
               <p className="text-sm">Intelligent food packaging recommendations for a sustainable future.</p>
               <div className="flex items-center text-sm font-medium text-muted-foreground">
@@ -429,7 +429,7 @@ export default function LandingPage() {
           </div>
           
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 text-sm">
-            <p>&copy; {new Date().getFullYear()} PackSmart AI. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} PackLabs. All rights reserved.</p>
             <div className="flex items-center text-muted-foreground bg-stone-900 rounded-lg px-4 py-3 max-w-lg text-xs leading-relaxed">
               <Info className="w-4 h-4 mr-3 flex-shrink-0" />
               <p>Disclaimer: AI recommendations are for decision support and estimations only. Always validate material suitability with physical lab testing before mass production.</p>

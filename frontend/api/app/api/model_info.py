@@ -1,5 +1,5 @@
 """
-PackSmart AI — Model Information Route
+PackLabs — Model Information Route
 
 Exposes ML model metadata: accuracy, F1, R², feature importances, training date.
 """

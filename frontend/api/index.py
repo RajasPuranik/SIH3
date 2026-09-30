@@ -13,7 +13,7 @@ try:
     
     from app.core.database import init_db
     import logging
-    logger = logging.getLogger("packsmart")
+    logger = logging.getLogger("packlabs")
 
     try:
         init_db()

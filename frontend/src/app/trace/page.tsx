@@ -132,7 +132,7 @@ export default function TraceabilityPage() {
                 <CardContent className="flex flex-col items-center space-y-4">
                   <div className="bg-white p-4 rounded-xl shadow-sm">
                     <QRCodeSVG 
-                      value={`https://packsmart.ai/trace/${generatedHash}`} 
+                      value={`https://packlabs.ai/trace/${generatedHash}`} 
                       size={160}
                       level="H"
                       includeMargin={false}
@@ -180,7 +180,7 @@ export default function TraceabilityPage() {
                 <Card>
                   <CardContent className="p-4 flex gap-4">
                     <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg shrink-0 flex items-center justify-center">
-                      <QRCodeSVG value={`https://packsmart.ai/trace/${batch.hash}`} size={64} />
+                      <QRCodeSVG value={`https://packlabs.ai/trace/${batch.hash}`} size={64} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-start mb-1">

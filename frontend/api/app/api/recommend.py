@@ -1,5 +1,5 @@
 """
-PackSmart AI — Recommendation API Routes
+PackLabs — Recommendation API Routes
 
 All recommendation endpoints: /recommend, /what-if, /shelf-life,
 /report/{id}, /report/{id}/pdf, /history, /batch
@@ -516,7 +516,7 @@ def get_report_pdf(id: str, db: Session = Depends(get_db)):
         # Title
         p.setFont("Helvetica-Bold", 20)
         p.setFillColor(colors.HexColor("#0F5132"))
-        p.drawString(30, height - 40, "PackSmart AI — Recommendation Report")
+        p.drawString(30, height - 40, "PackLabs — Recommendation Report")
 
         # Subtitle
         p.setFont("Helvetica", 12)
@@ -602,7 +602,7 @@ def get_report_pdf(id: str, db: Session = Depends(get_db)):
         return Response(
             content=buffer.getvalue(),
             media_type="application/pdf",
-            headers={"Content-Disposition": f'attachment; filename="packsmart_report_{id[:8]}.pdf"'},
+            headers={"Content-Disposition": f'attachment; filename="packlabs_report_{id[:8]}.pdf"'},
         )
 
     except ImportError:
