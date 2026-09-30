@@ -117,6 +117,23 @@ const demos = [
 
 export default function LandingPage() {
   const { language, t } = useTranslation();
+    const features = [
+    {
+      title: t('home.features.card1.title'),
+      description: t('home.features.card1.desc'),
+      icon: PackageSearch,
+    },
+    {
+      title: t('home.features.card2.title'),
+      description: t('home.features.card2.desc'),
+      icon: Database,
+    },
+    {
+      title: t('home.features.card3.title'),
+      description: t('home.features.card3.desc'),
+      icon: LineChart,
+    },
+  ];
   const [audienceIndex, setAudienceIndex] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const prefersReducedMotion = useReducedMotion();
