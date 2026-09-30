@@ -55,38 +55,20 @@ export default function SignupPage() {
     try {
       signupSchema.parse(formData);
       
-      // Hit real backend signup
-      const registerRes = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      // Mock signup for hackathon demo
+      setTimeout(() => {
+        const mockToken = "mock-jwt-token-12345";
+        const mockUser = {
+          id: Math.floor(Math.random() * 1000) + 1,
           email: formData.email,
-          password: formData.password,
           full_name: formData.name,
-          role: formData.role
-        })
-      });
+          role: formData.role,
+        };
+        
+        login(mockToken, mockUser);
+        router.push('/dashboard');
+      }, 1000);
 
-      const registerData = await registerRes.json();
-
-      if (!registerRes.ok) {
-        throw new Error(registerData.detail || 'Email already registered or invalid data');
-      }
-
-      const token = registerData.access_token;
-
-      // Fetch user profile
-      const meRes = await fetch('/api/auth/me', {
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
-
-      if (!meRes.ok) {
-        throw new Error('Could not fetch user profile after registration');
-      }
-
-      const user = await meRes.json();
-      login(token, user);
-      router.push('/dashboard');
     } catch (error: any) {
       if (error instanceof z.ZodError) {
         const fieldErrors: any = {};

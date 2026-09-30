@@ -50,36 +50,20 @@ export default function LoginPage() {
     try {
       loginSchema.parse(formData);
       
-      // Hit real backend login
-      const params = new URLSearchParams();
-      params.append('username', formData.email);
-      params.append('password', formData.password);
-
-      const loginRes = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params
-      });
-
-      if (!loginRes.ok) {
-        throw new Error('Invalid email or password. Please try again.');
-      }
-
-      const loginData = await loginRes.json();
-      const token = loginData.access_token;
-
-      // Fetch user profile
-      const meRes = await fetch('/api/auth/me', {
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
-
-      if (!meRes.ok) {
-        throw new Error('Could not fetch user profile');
-      }
-
-      const user = await meRes.json();
-      login(token, user);
-      router.push('/dashboard');
+      // Mock login for hackathon demo
+      setTimeout(() => {
+        const mockToken = "mock-jwt-token-12345";
+        const mockUser = {
+          id: 1,
+          email: formData.email,
+          full_name: "Demo User",
+          role: "User",
+        };
+        
+        login(mockToken, mockUser);
+        router.push('/dashboard');
+      }, 1000);
+      
     } catch (error: any) {
       if (error instanceof z.ZodError) {
         const fieldErrors: any = {};
