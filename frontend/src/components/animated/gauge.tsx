@@ -41,7 +41,7 @@ export function Gauge({
     return '#E11D48' // Danger
   }
   
-  const color = getColor(percentage)
+  const activeColor = color || getColor(percentage)
   
   useEffect(() => {
     if (reducedMotion) {
@@ -70,7 +70,7 @@ export function Gauge({
         <motion.path
           d={`M ${strokeWidth/2} ${size/2} A ${radius} ${radius} 0 0 1 ${size - strokeWidth/2} ${size/2}`}
           fill="none"
-          stroke={color}
+          stroke={activeColor}
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           strokeDasharray={circumference}

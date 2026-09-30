@@ -148,7 +148,7 @@ export default function LandingPage() {
           
           <div className="container mx-auto px-4 text-center">
             <motion.div
-              variants={staggerContainer}
+              variants={staggerContainer()}
               initial="hidden"
               animate="show"
               className="max-w-4xl mx-auto space-y-8"

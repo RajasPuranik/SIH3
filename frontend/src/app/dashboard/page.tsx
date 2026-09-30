@@ -53,7 +53,7 @@ export default function DashboardPage() {
         </div>
 
         <motion.div 
-          variants={staggerContainer}
+          variants={staggerContainer()}
           initial="hidden"
           animate="show"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
