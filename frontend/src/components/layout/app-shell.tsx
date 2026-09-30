@@ -6,14 +6,28 @@ import { Sidebar } from './sidebar'
 import { MobileNav } from './mobile-nav'
 import { ToastProvider } from '@/components/ui/toast'
 import { useReducedMotion } from '@/lib/motion'
+import { usePathname } from 'next/navigation'
 
 export default function AppShell({ children }: { children: ReactNode }) {
   // Use the hook to initialize the reduced motion listener early
   useReducedMotion()
+  
+  const pathname = usePathname()
+  const isAuthPage = pathname === '/login' || pathname === '/signup'
+
+  if (isAuthPage) {
+    return (
+      <ToastProvider>
+        <div className="flex min-h-[100dvh] flex-col bg-background">
+          {children}
+        </div>
+      </ToastProvider>
+    )
+  }
 
   return (
     <ToastProvider>
-      <div className="flex min-h-screen flex-col bg-background">
+      <div className="flex h-[100dvh] flex-col bg-background">
         <Header />
         
         <div className="flex flex-1 overflow-hidden">
