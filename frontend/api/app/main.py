@@ -73,6 +73,18 @@ app.include_router(trace.router)
 app.include_router(assistant.router)
 app.include_router(model_info.router)
 
+from fastapi.responses import JSONResponse
+import traceback
+from fastapi import Request
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.error(f"Unhandled exception: {exc}\n{traceback.format_exc()}")
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "Internal Server Error", "error": str(exc), "type": str(type(exc))}
+    )
+
 
 @app.get("/api/health", tags=["system"])
 def health_check():
