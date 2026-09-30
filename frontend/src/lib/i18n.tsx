@@ -56,6 +56,16 @@ const translations: Translations = {
     // Messages
     'msg.error': 'An error occurred. Please try again.',
     'msg.success': 'Operation completed successfully.',
+    
+    // Home Page
+    'home.features.title': 'Everything you need for packaging decisions',
+    'home.features.subtitle': 'Our comprehensive platform provides end-to-end support for selecting, validating, and tracing your food packaging solutions.',
+    'home.features.card1.title': 'Smart Recommendations',
+    'home.features.card1.desc': 'AI-driven packaging suggestions tailored to specific food properties and environmental conditions.',
+    'home.features.card2.title': 'Material Database',
+    'home.features.card2.desc': 'Extensive catalog of traditional and biodegradable packaging materials with detailed specs.',
+    'home.features.card3.title': 'Shelf Life Prediction',
+    'home.features.card3.desc': 'Accurately estimate product shelf life based on material barrier properties and climate.',
   },
   hi: {
     // Navigation
@@ -102,6 +112,16 @@ const translations: Translations = {
     // Messages
     'msg.error': 'एक त्रुटि हुई। कृपया पुनः प्रयास करें।',
     'msg.success': 'ऑपरेशन सफलतापूर्वक पूरा हुआ।',
+
+    // Home Page
+    'home.features.title': 'पैकेजिंग निर्णयों के लिए आपको जो कुछ भी चाहिए',
+    'home.features.subtitle': 'हमारा व्यापक मंच आपके खाद्य पैकेजिंग समाधानों को चुनने, मान्य करने और ट्रेस करने के लिए एंड-टू-एंड समर्थन प्रदान करता है।',
+    'home.features.card1.title': 'स्मार्ट सिफारिशें',
+    'home.features.card1.desc': 'विशिष्ट खाद्य गुणों और पर्यावरणीय परिस्थितियों के अनुरूप AI-संचालित पैकेजिंग सुझाव।',
+    'home.features.card2.title': 'सामग्री डेटाबेस',
+    'home.features.card2.desc': 'विस्तृत विनिर्देशों के साथ पारंपरिक और बायोडिग्रेडेबल पैकेजिंग सामग्री का व्यापक कैटलॉग।',
+    'home.features.card3.title': 'शेल्फ लाइफ भविष्यवाणी',
+    'home.features.card3.desc': 'सामग्री अवरोध गुणों और जलवायु के आधार पर उत्पाद के शेल्फ जीवन का सटीक अनुमान लगाएं।',
   },
 };
 

@@ -97,7 +97,7 @@ export default function LoginPage() {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-stone-50 p-4 font-inter">
+    <div className="min-h-screen flex items-center justify-center bg-background p-4 font-inter">
       <div className="w-full max-w-md">
         <div className="flex justify-center mb-8">
           <Link href="/" className="flex items-center space-x-2">

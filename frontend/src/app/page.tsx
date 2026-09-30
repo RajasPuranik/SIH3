@@ -116,7 +116,7 @@ const demos = [
 ];
 
 export default function LandingPage() {
-  const { language } = useTranslation();
+  const { language, t } = useTranslation();
   const [audienceIndex, setAudienceIndex] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const prefersReducedMotion = useReducedMotion();
@@ -246,8 +246,8 @@ export default function LandingPage() {
         <section className="py-24 bg-card">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Everything you need for packaging decisions</h2>
-              <p className="text-lg text-muted-foreground">Our comprehensive platform provides end-to-end support for selecting, validating, and tracing your food packaging solutions.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t('home.features.title')}</h2>
+              <p className="text-lg text-muted-foreground">{t('home.features.subtitle')}</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
