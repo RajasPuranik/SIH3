@@ -1,0 +1,112 @@
+{
+  "feature_names": [
+    "moisture_pct",
+    "oil_fat_pct",
+    "ph",
+    "water_activity",
+    "respiration_rate_ml",
+    "is_produce",
+    "is_perishable",
+    "category_idx",
+    "storage_temp_c",
+    "relative_humidity_pct",
+    "target_shelf_life_days",
+    "transit_idx",
+    "storage_type_idx",
+    "primary_spoilage_idx",
+    "priority_protection",
+    "priority_cost",
+    "priority_sustainability"
+  ],
+  "barrier_classes": [
+    "breathable",
+    "high",
+    "low",
+    "medium",
+    "ultra_high"
+  ],
+  "material_families": [
+    "barrier_film",
+    "bioplastic",
+    "laminate",
+    "paper_based",
+    "polyester",
+    "polyolefin",
+    "specialty"
+  ],
+  "dataset_size": 3500,
+  "training_date": "2026-09-30T11:11:46.806793",
+  "metrics": {
+    "barrier_classifier": {
+      "accuracy": 0.9971,
+      "f1_weighted": 0.9971
+    },
+    "family_classifier": {
+      "accuracy": 0.6229,
+      "f1_weighted": 0.6098
+    },
+    "shelf_life_regressor": {
+      "r2": 0.8077,
+      "mae_days": 72.23
+    }
+  },
+  "feature_importances": {
+    "barrier_classifier": {
+      "moisture_pct": 0.1653,
+      "oil_fat_pct": 0.1779,
+      "ph": 0.0212,
+      "water_activity": 0.1706,
+      "respiration_rate_ml": 0.1066,
+      "is_produce": 0.1501,
+      "is_perishable": 0.0404,
+      "category_idx": 0.0488,
+      "storage_temp_c": 0.0245,
+      "relative_humidity_pct": 0.0012,
+      "target_shelf_life_days": 0.0009,
+      "transit_idx": 0.0007,
+      "storage_type_idx": 0.0005,
+      "primary_spoilage_idx": 0.0857,
+      "priority_protection": 0.0018,
+      "priority_cost": 0.0019,
+      "priority_sustainability": 0.002
+    },
+    "family_classifier": {
+      "moisture_pct": 0.1155,
+      "oil_fat_pct": 0.1272,
+      "ph": 0.0398,
+      "water_activity": 0.0964,
+      "respiration_rate_ml": 0.1082,
+      "is_produce": 0.1412,
+      "is_perishable": 0.02,
+      "category_idx": 0.0336,
+      "storage_temp_c": 0.0329,
+      "relative_humidity_pct": 0.0349,
+      "target_shelf_life_days": 0.021,
+      "transit_idx": 0.0138,
+      "storage_type_idx": 0.0135,
+      "primary_spoilage_idx": 0.0257,
+      "priority_protection": 0.0422,
+      "priority_cost": 0.042,
+      "priority_sustainability": 0.092
+    },
+    "shelf_life_regressor": {
+      "moisture_pct": 0.1203,
+      "oil_fat_pct": 0.3262,
+      "ph": 0.0096,
+      "water_activity": 0.0419,
+      "respiration_rate_ml": 0.0079,
+      "is_produce": 0.0012,
+      "is_perishable": 0.0244,
+      "category_idx": 0.0024,
+      "storage_temp_c": 0.3924,
+      "relative_humidity_pct": 0.0316,
+      "target_shelf_life_days": 0.0034,
+      "transit_idx": 0.0015,
+      "storage_type_idx": 0.0028,
+      "primary_spoilage_idx": 0.0024,
+      "priority_protection": 0.0175,
+      "priority_cost": 0.0068,
+      "priority_sustainability": 0.0079
+    }
+  }
+}
